@@ -1,0 +1,1 @@
+# Fastify + TypeScript + Postgres + sequelize

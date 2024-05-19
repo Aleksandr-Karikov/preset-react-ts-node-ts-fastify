@@ -1,0 +1,7 @@
+{
+  "verbose": true,
+  "watch": ["src/**/*.ts"],
+  "exec": "ts-node --transpile-only ./src/index.ts",
+  "pollingInterval": 500,
+  "legacyWatch": true
+}

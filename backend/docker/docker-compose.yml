@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=mydatabase
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./
+    volumes:
+      - ../:/usr/src/app
+    ports:
+      - "3001:3001" # Backend будет доступен на порту 3000 хоста
+    depends_on:
+      - db
+    environment:
+      - PG_HOST=db
+      - PG_USER=postgres
+      - PG_PASSWORD=postgres
+      - PG_DATABASE=mydatabase
+      - PG_PORT=5432
+      - NODE_ENV=development
+      - PORT=3001
+      - HOST=0.0.0.0
+volumes:
+  postgres_data:
