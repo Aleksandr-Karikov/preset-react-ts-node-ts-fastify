@@ -1,6 +1,6 @@
 import fastify from 'fastify';
-import { APP_HOST, APP_PORT } from './config/env';
-import { sequelize } from './config/db';
+import { APP_HOST, APP_PORT } from 'src/config/env';
+import { sequelize } from 'src/config/db';
 const app = fastify({ logger: true });
 
 app.decorate('db', sequelize);

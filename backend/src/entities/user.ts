@@ -1,6 +1,6 @@
 // models/user.ts
 import { Model, DataTypes } from 'sequelize';
-import { sequelize } from '../config/db';
+import { sequelize } from 'src/config/db';
 
 export class User extends Model {
   public id?: number;
